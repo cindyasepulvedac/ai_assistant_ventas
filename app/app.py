@@ -301,9 +301,7 @@ file_uploader_css = """
 def main():
 
     ## Appbar logo
-    #st.logo(r'app/assets/images/logo_comfama.png', size="small", icon_image=r'app/assets/images/logo_comfama.png') ##Así se requieren las rutas para la webapp
-    st.logo(r'app\assets\images\logo_comfama.png', size="small", icon_image=r'app\assets\images\logo_comfama.png') ##Así se requieren las rutas para las pruebas locales
-    
+    st.logo(r'app/assets/images/logo_comfama.png', size="small", icon_image=r'app/assets/images/logo_comfama.png') 
     with stylable_container(key='title_container', css_styles=title_container_css):
         st.title("🤖 Asesor AI Venta Empresarial")
 
