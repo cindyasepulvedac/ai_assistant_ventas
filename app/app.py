@@ -15,6 +15,7 @@ import pytz
 from dotenv import load_dotenv, find_dotenv
 import uuid
 import logging
+import toml
 
 ## -- Custom modules
 from utils_ai_prompts import *
@@ -61,11 +62,15 @@ if "messages" not in st.session_state:
 #              BACK LOGIC                            #
 # -------------------------------------------------- #
 load_dotenv(find_dotenv(), override=True)
+
 @st.cache_resource
 def load_ai_resources():
     try:
-        TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
-        GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+        # TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
+        # GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+        config = toml.load("config.toml")
+        TOGETHER_API_KEY = config["api"]["together_api_key"]
+        GOOGLE_API_KEY = config["api"]["google_api_key"]
         FAISS_INDEX_PATH = r"app\data\faiss_index_tabular"
 
         if not TOGETHER_API_KEY or not GOOGLE_API_KEY:
