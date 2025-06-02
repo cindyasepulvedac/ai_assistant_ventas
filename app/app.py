@@ -71,7 +71,7 @@ def load_ai_resources():
         config = toml.load("config.toml")
         TOGETHER_API_KEY = config["api"]["together_api_key"]
         GOOGLE_API_KEY = config["api"]["google_api_key"]
-        FAISS_INDEX_PATH = r"app\data\faiss_index_tabular"
+        FAISS_INDEX_PATH = r"app/data/faiss_index_tabular"
 
         if not TOGETHER_API_KEY or not GOOGLE_API_KEY:
             st.error("Faltan las API Keys necesarias. Verifica TOGETHER_API_KEY y GOOGLE_API_KEY.")
